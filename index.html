@@ -16,7 +16,7 @@
   <h2>Lấy Số Điện Thoại từ API</h2>
 
   <label for="apiUrl">Nhập URL API:</label>
-  <input id="apiUrl" type="text" value="https://sms-activation-service.net/stubs/handler_api?api_key=c63cb1b732460e4a7687e82bdb5fc961&action=getNumber&service=yw&operator=any&country=16&lang=ru" />
+  <input id="apiUrl" type="text" value="https://smshub.org/stubs/handler_api.php?api_key=131977Ud53570ad568eb3e6c8be5c250215eed9&action=getNumber&service=yw&operator=three&country=16&maxPrice=0.02" />
 
   <button onclick="getPhoneNumber()">Lấy số điện thoại</button>
 
@@ -33,6 +33,7 @@
       fetch(url)
         .then(response => response.text())
         .then(text => {
+          console.log("Phản hồi API:", text);
           if (text.startsWith("ACCESS_NUMBER")) {
             const parts = text.split(":");
             const phone = parts[2] || "Không tìm thấy số";
@@ -58,4 +59,3 @@
 
 </body>
 </html>
-
