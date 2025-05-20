@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Lấy Số Điện Thoại qua API</title>
+  <title>Lấy Số Điện Thoại qua API (Proxy)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
@@ -26,7 +26,10 @@
 
   <script>
     function getPhoneNumber() {
-      const url = document.getElementById("apiUrl").value.trim();
+      const inputUrl = document.getElementById("apiUrl").value.trim();
+      const proxy = "https://cors-anywhere.herokuapp.com/";
+      const url = proxy + inputUrl;
+
       fetch(url)
         .then(response => response.text())
         .then(text => {
